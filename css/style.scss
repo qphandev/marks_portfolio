@@ -1,0 +1,250 @@
+$primary-color: #5D72C2;
+$gray-1: #262626;
+$gray-2: #838383;
+$gray-3: #858585;
+$gray-4: #E4E4E4; 
+
+.bg-primary {
+    background-color: $primary-color;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Lexend Peta', sans-serif;
+}
+a {
+    font-weight: lighter;
+}
+
+// Media queries
+$smallDevice: 600px;
+$mediumDevice: 768px;
+$largeDevice: 992px;
+@mixin mQ($screen_size) {
+    @media only screen and (max-width: $screen_size) {
+        @content;
+    }
+}
+
+@mixin minWidth($screen_size) {
+    @media only screen and (min-width: $screen_size) {
+        @content;
+    }
+}
+
+// When screen width > screen height
+@mixin landscape() {
+    @media only screen and (orientation: landscape) {
+        @content;
+    }
+}
+
+// Height query
+@mixin screenHeight($height) {
+    @media only screen and (max-height: $height) {
+        @content;
+    }
+}
+
+// Config
+.nav-wrapper {
+    
+    @include minWidth($largeDevice) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.brand-logo {
+    font-size: 1.2rem!important;
+}
+.row {
+    margin: 0!important;
+}
+.col {
+    padding: 0!important;
+}
+
+// NAV
+.nav-sticky{
+    min-height: 100vh!important;
+    top: 0;
+    position: sticky;
+    z-index: 100;
+
+    @include mQ($largeDevice) {
+        min-height: 10vh!important;
+    }
+}
+
+.menu-item-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+.profile-picture {
+    width: 10rem;
+    border-radius: 20%;
+}
+
+// MAIN
+main {
+    width: 75vw;
+    @include mQ($largeDevice) {
+        width: 100%!important;
+    }
+}
+section:nth-child(even) {
+    background-color: $gray-4;
+}
+
+section {
+    min-height: 100vh;
+    position: relative;
+}
+
+.section-title-container {
+
+    @include minWidth($largeDevice) {
+        transform: rotate(90deg);
+        transform-origin: top left;
+        position: absolute;
+        top: 1rem;
+        left: 12rem;
+
+        h2 {
+            color: $gray-2;
+            transform: scale(-1, -1);
+            transform-origin: bottom;
+            font-size: 4rem;
+            font-weight: bolder;
+        }
+    }
+
+    @include mQ($largeDevice) {
+
+        h2 {
+            padding: 1rem;
+            margin: 0;
+            font-size: 2rem;
+            color: $gray-2;
+        }
+    }
+    
+   
+}
+
+.section__box {
+
+    h1 {
+        font-weight: bolder;
+        color: $primary-color;
+        font-size: 4rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bolder;
+        color: $gray-2;
+    }
+
+    @include minWidth($largeDevice) {
+        padding: 1rem;
+        width: 60%;
+        margin-left: 7rem;
+    }
+
+    @include mQ($largeDevice) {
+        h1 {
+            font-size: 2rem;
+        }
+        h3 {
+            font-size: 1rem;
+        }
+        padding: 1rem;
+    }
+    
+}
+
+#about {
+    display: flex;
+    align-items: center;
+    p {
+        margin-bottom: 3rem;
+    }
+    .section__box {
+        margin: 2rem;
+    }
+}
+#education {
+    h3 {
+        font-size: 1.7rem;
+        font-weight: bolder;
+        color: black;
+    }
+    h4 {
+        font-size: 1.3rem;
+        line-height: 110%;
+        color: $gray-2;
+        margin: .2rem;
+    }
+    h5 {
+        font-size: 1rem;
+        color: $gray-3;
+        margin-left: .2rem;
+    }
+}
+
+#skills {
+    h3 {
+        color: black;
+    }
+    li {
+        list-style-type: square!important;
+        margin-left: 4rem;
+    }
+}
+
+#experience {
+
+}
+.section__experience {
+    margin-bottom: 4rem;
+    h2 {
+        color: $primary-color;
+        font-size: 2rem;
+        margin: 1rem 0;
+    }
+    h3 {
+        color: black;
+        font-size: 1.2rem;
+    }
+    h4 {
+        color: $gray-2;
+        font-size: 1rem;
+    }
+}
+
+// Button
+.primary-button {
+    padding: .8rem 2rem;
+    color: $primary-color;
+    border: $primary-color 1px solid;
+    font-size: .8rem;
+
+    &:hover {
+        background-color: $primary-color;
+        color: white;
+        transition: .2s;
+    }
+    &:active {
+        background-color: white;
+        color: $primary-color;
+    }
+}
+
+// LARGE DEVICE
+@include mQ($largeDevice) {
+
+}
